@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lista</title>
+</head>
+<body>
+
+<h2>Registros</h2>
+
+<table border="1">
+    <tr>
+    	<th>ID</th>
+    	<th>Código</th>
+    	<th>Entrada</th>
+    	<th>Envio</th>
+    	<th>Ensaios</th>
+    	<th>Dias</th>
+    </tr>
+
+    {% for d in dados %}
+    <tr>
+        <td>{{ d.id }}</td>
+    	<td>{{ d.codigo }}</td>
+    	<td>{{ d.entrada }}</td>
+    	<td>{{ d.envio }}</td>
+    	<td>{{ d.ensaios }}</td>
+    	<td>{{ d.dias }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+<br>
+<a href="/">Voltar</a>
+
+</body>
+</html>

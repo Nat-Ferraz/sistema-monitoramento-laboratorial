@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cadastro</title>
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+        }
+
+        body{
+            width: 100vw;
+            height: 100vh;
+            font-family: verdana;
+        }
+
+        .conteudo{
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            padding-top: 50px;
+        }
+
+        .mensagem {
+            background-color: #2ecc71;
+            color: white;
+            padding: 10px;
+            margin: 20px auto;
+            width: 300px;
+            border-radius: 5px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .botao-exportar {
+            display: inline-block;
+            margin-top: 10px;
+        }
+
+        .botao-dashboard {
+            display: inline-block;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+<img src="/static/fundo.png"
+     style="
+        position: fixed;
+        top:0;
+        left:0;
+        width:100%;
+        height:100%;
+        object-fit: cover;
+        z-index: -1;
+     ">
+
+<div class="conteudo">
+
+<h2 style="color: #d68c3c;">Cadastro de Amostra</h2>
+
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <div class="mensagem">
+        {{ messages[0] }}
+    </div>
+  {% endif %}
+{% endwith %}
+
+<form action="/salvar" method="post" style="color: #d68c3c;">
+
+    Código de Serviço:<br>
+    <input type="text" name="codigo_servico" style="height: 25px; width: 200px; text-align: center;"><br><br>
+
+    Data de Entrada:<br>
+    <input type="date" name="data_entrada" style="height: 25px; width: 200px; text-align: center;"><br><br>
+
+    Data de Envio:<br>
+    <input type="date" name="data_envio" style="height: 25px; width: 200px; text-align: center;"><br><br>
+
+    Ensaio 1:<br>
+    <select name="ensaio1" style="height: 25px; width: 150px; text-align: center;">
+        <option></option>
+        <option>FQ - 03</option>
+        <option>FQ - 04</option>
+        <option>FQ - 07</option>
+        <option>FQ - 12</option>
+        <option>FQ - 18</option>
+    </select><br><br>
+
+    Ensaio 2:<br>
+    <select name="ensaio2" style="height: 25px; width: 150px; text-align: center;">
+        <option></option>
+        <option>FQ - 03</option>
+        <option>FQ - 04</option>
+        <option>FQ - 07</option>
+        <option>FQ - 12</option>
+        <option>FQ - 18</option>
+    </select><br><br>
+
+    Ensaio 3:<br>
+    <select name="ensaio3" style="height: 25px; width: 150px; text-align: center;">
+        <option></option>
+        <option>FQ - 03</option>
+        <option>FQ - 04</option>
+        <option>FQ - 07</option>
+        <option>FQ - 12</option>
+        <option>FQ - 18</option>
+    </select><br><br>
+
+    Ensaio 4:<br>
+    <select name="ensaio4" style="height: 25px; width: 150px; text-align: center;">
+        <option></option>
+        <option>FQ - 03</option>
+        <option>FQ - 04</option>
+        <option>FQ - 07</option>
+        <option>FQ - 12</option>
+        <option>FQ - 18</option>
+    </select><br><br>
+
+    <button type="submit">Salvar</button>
+
+</form>
+
+<br>
+
+<a href="/exportar" class="botao-exportar">
+    <button type="button">Exportar dados para Excel</button>
+</a>
+
+<br><br>
+
+<a href="/dashboard" class="botao-dashboard">
+    <button type="button">Ver Dashboard</button>
+</a>
+
+<br><br>
+
+<a href="/lista">Ver registros</a>
+
+</div>
+
+<script>
+    setTimeout(function(){
+        let msg = document.querySelector('.mensagem');
+        if(msg){
+            msg.style.display = 'none';
+        }
+    }, 3000);
+</script>
+
+</body>
+</html>

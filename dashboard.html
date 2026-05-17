@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+
+    <style>
+        body {
+            font-family: Verdana;
+            text-align: center;
+            background-color: #f4f4f4;
+        }
+
+        h1 {
+            color: #d68c3c;
+        }
+
+        .card {
+            display: inline-block;
+            background-color: white;
+            padding: 20px;
+            margin: 15px;
+            border-radius: 10px;
+            width: 250px;
+            box-shadow: 0px 0px 8px #ccc;
+        }
+
+        table {
+            margin: 30px auto;
+            border-collapse: collapse;
+            background-color: white;
+        }
+
+        th, td {
+            border: 1px solid #ccc;
+            padding: 10px 20px;
+        }
+
+        th {
+            background-color: #d68c3c;
+            color: white;
+        }
+
+        a {
+            color: #d68c3c;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+<h1>Dashboard de Ensaios Laboratoriais</h1>
+
+<div class="card">
+    <h3>Total de trabalhos</h3>
+    <h2>{{ total }}</h2>
+</div>
+
+<div class="card">
+    <h3>Média geral de dias</h3>
+    <h2>{{ media_geral }}</h2>
+</div>
+
+<table>
+    <tr>
+        <th>Ensaio</th>
+        <th>Quantidade</th>
+        <th>Média de dias</th>
+    </tr>
+
+    {% for item in resumo %}
+    <tr>
+        <td>{{ item.ensaio }}</td>
+        <td>{{ item.quantidade }}</td>
+        <td>{{ item.media }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+<a href="/">Voltar ao cadastro</a>
+
+</body>
+</html>
